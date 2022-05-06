@@ -9,8 +9,8 @@ export function Options() {
   return (
     <View style={styles.container}>
 
-        <Text>
-
+        <Text style={styles.title}>
+            Deixe seu feedback
         </Text>
 
         <View style={styles.options}>
