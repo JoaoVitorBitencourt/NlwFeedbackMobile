@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     TouchableOpacity,
     TouchableOpacityProps,
     Image,
@@ -15,21 +15,21 @@ interface Props extends TouchableOpacityProps {
 }
 
 export function Option({ title, image, ...rest }: Props) {
-  return (
-    <TouchableOpacity 
-        style={styles.container}
-        {...rest}
-    >
-        <Image 
-            source={image}
-            style={styles.image}
-        />
-
-        <Text
-            style={styles.title}
+    return (
+        <TouchableOpacity
+            style={styles.container}
+            {...rest}
         >
-            {title}
-        </Text>
-    </TouchableOpacity>
-  );
+            <Image
+                source={image}
+                style={styles.image}
+            />
+
+            <Text
+                style={styles.title}
+            >
+                {title}
+            </Text>
+        </TouchableOpacity>
+    );
 }

@@ -3,31 +3,38 @@ import { View, Text } from "react-native";
 import { Copyright } from "../Copyright";
 import { styles } from "./styles";
 import { Option } from "../Option";
+import { FeedbackType } from "../Widget"
 import { feedbackTypes } from "../../utils/feedbackTypes";
+import { ScreenshotButton } from "../ScreenshotButton";
 
-export function Options() {
-  return (
-    <View style={styles.container}>
+interface Props {
+    onFeedbackTypeChanged: (feedbackType: FeedbackType) => void;
+}
 
-        <Text style={styles.title}>
-            Deixe seu feedback
-        </Text>
+export function Options({ onFeedbackTypeChanged }: Props) {
+    return (
+        <View style={styles.container}>
 
-        <View style={styles.options}>
-            {
-                Object
-                .entries(feedbackTypes)
-                .map(([key, value]) => {
-                    <Option 
-                        key={key}
-                        title={value.title}
-                        image={value.image}
-                    />
-                })
-            }
+            <Text style={styles.title}>
+                Deixe seu feedback
+            </Text>
+
+            <View style={styles.options}>
+                {
+                    Object
+                        .entries(feedbackTypes)
+                        .map(([key, value]) => (
+                            <Option
+                                key={key}
+                                title={value.title}
+                                image={value.image}
+                                onPress={() => onFeedbackTypeChanged(key as FeedbackType)}
+                            />
+                        ))
+                }
+            </View>
+
+            <Copyright />
         </View>
-
-        <Copyright />
-    </View>
-  );
+    );
 }
